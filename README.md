@@ -17,7 +17,7 @@ Waybar, SwayNC, Rofi, Neovim, and a small collection of shell utilities.
 
 ![Friren background](screenshots/empty-friren.png)
 ![Spotify with cava](screenshots/spotify-cava.png)
-![wallpaper-changer](https://youtu.be/W7_Y0BtjLLk)
+![wallpaper-changer](https://www.youtube.com/watch?v=W7_Y0BtjLLk)
 
 
 ## Installation 
