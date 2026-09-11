@@ -1,1 +1,20 @@
-/home/davening/.cache/wal/colors-waybar.css
+@define-color foreground #c3c4c4;
+@define-color background #121516;
+@define-color cursor #c3c4c4;
+
+@define-color color0 #121516;
+@define-color color1 #277596;
+@define-color color2 #3b809e;
+@define-color color3 #4587a5;
+@define-color color4 #4d87a0;
+@define-color color5 #757b73;
+@define-color color6 #b3ab82;
+@define-color color7 #8f959a;
+@define-color color8 #5b686f;
+@define-color color9 #349CC9;
+@define-color color10 #4FABD3;
+@define-color color11 #5CB5DC;
+@define-color color12 #67B4D6;
+@define-color color13 #9DA49A;
+@define-color color14 #EFE5AE;
+@define-color color15 #c3c4c4;
