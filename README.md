@@ -3,7 +3,6 @@
 My personal Arch Linux desktop configuration built around Hyprland, Pywal, Kitty,
 Waybar, SwayNC, Rofi, Neovim, and a small collection of shell utilities.
 
----
 
 ## Highlights
 
@@ -13,15 +12,13 @@ Waybar, SwayNC, Rofi, Neovim, and a small collection of shell utilities.
 - English and Chinese input toggle with `Super+Space`
 - Pywal themes for Discord,Bat,Spotify via Spicetify
 
----
 
 ## Showcase
 
 ![Friren background](screenshots/empty-friren.png)
 ![Spotify with cava](screenshots/spotify-cava.png)
-![wallpaper-changer](https://rawcdn.githack.com/daveningfr/dotfiles/a5828e801876c07bf7df6b22c7268aff09a97418/screenshots/wallchanger.mp4)
+![wallpaper-changer](https://youtu.be/W7_Y0BtjLLk)
 
----
 
 ## Installation 
 Yay is needed for the complete Installation of my dotfiles, 
@@ -48,7 +45,6 @@ Make sure it is executable first
 Change the wallpaper via using the wallpaper script created by yours truly
 `wallpaper "path/to/your/wallpaper"`
 
----
 
 ## Layout
 
