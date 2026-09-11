@@ -1,0 +1,280 @@
+
+/* =========================================================
+   Pywal colors
+   ========================================================= */
+
+@import "colors/colors-waybar.css";
+
+
+/* =========================================================
+   Global
+   ========================================================= */
+
+* {
+    font-family: "0xProto Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Keep the bar legible while letting the wallpaper show through. */
+window#waybar > box {
+    background: alpha(@background, 0.72);
+    border: 1px solid alpha(@color7, 0.18);
+    border-radius: 12px;
+    margin: 6px 8px 0;
+    padding: 1px 3px;
+}
+
+
+/* =========================================================
+   LEFT / RIGHT MODULE CONTAINERS
+   ========================================================= */
+
+#clock,
+#workspaces,
+#cpu,
+#temperature,
+#network,
+#bluetooth,
+#battery,
+#custom-swaync {
+    background: alpha(@background, 0.68);
+    color: @foreground;
+
+    margin: 4px 3px;
+    padding: 6px 12px;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+   ========================================================= */
+
+#clock {
+    margin-left: 6px;
+}
+
+#workspaces {
+    padding: 0 5px;
+}
+
+
+/* =========================================================
+   Workspaces
+   ========================================================= */
+
+#workspaces button {
+    color: @color8;
+    background: transparent;
+
+    padding: 0 8px;
+    margin: 3px 2px;
+
+    border-radius: 7px;
+
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: @foreground;
+    background: @color8;
+}
+
+#workspaces button.active {
+    color: @background;
+    background: alpha(@color12, 0.9);
+}
+
+#workspaces button.urgent {
+    color: @background;
+    background: @color1;
+}
+
+
+/* =========================================================
+   MIDDLE
+   No containers — modules flow together
+   ========================================================= */
+
+/* =========================================================
+   MIDDLE — SINGLE CONTAINER
+   ========================================================= */
+
+#pulseaudio,
+#custom-media,
+#custom-media-control,
+#cava {
+    background: alpha(@background, 0.68);
+    color: @foreground;
+
+    margin: 5px 0;
+    padding: 5px 12px;
+}
+
+
+#pulseaudio {
+    color: @color4;
+    border-radius: 10px 0 0 10px;
+}
+
+#custom-media {
+    color: @color6;
+}
+
+#custom-media-control {
+    color: @color4;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#custom-media-control.paused,
+#custom-media-control.stopped {
+    color: @color6;
+}
+
+#custom-media-control:hover {
+    color: @foreground;
+}
+
+#cava {
+    color: @color4;
+    border-radius: 0 10px 10px 0;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   PulseAudio
+   ========================================================= */
+
+#pulseaudio {
+    color: @color4;
+}
+
+#pulseaudio.muted {
+    color: @color1;
+}
+
+
+/* =========================================================
+   Media
+   ========================================================= */
+
+#custom-media {
+    color: @color6;
+}
+
+#custom-media:hover {
+    color: @color4;
+}
+
+
+/* =========================================================
+   Cava
+   ========================================================= */
+
+#cava {
+    color: @color4;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+#cpu {
+    color: @color2;
+}
+
+#temperature {
+    color: @color3;
+}
+
+#temperature.critical {
+    color: @color1;
+}
+
+#network {
+    color: @color5;
+}
+
+#bluetooth {
+    color: @color7;
+}
+
+#battery {
+    color: @color6;
+}
+
+#battery.warning {
+    color: @color3;
+}
+
+#battery.critical:not(.charging) {
+    color: @color1;
+}
+
+#battery.charging {
+    color: @color2;
+}
+
+#custom-swaync {
+    color: @color4;
+    
+}
+
+
+/* =========================================================
+   Tooltips
+   ========================================================= */
+
+tooltip {
+    background: alpha(@background, 0.92);
+    color: @foreground;
+
+    border: 1px solid alpha(@color12, 0.55);
+    border-radius: 8px;
+
+    padding: 6px 10px;
+}
+
+
+/* =========================================================
+   Hover effects
+   ========================================================= */
+
+#clock:hover,
+#cpu:hover,
+#temperature:hover,
+#network:hover,
+#bluetooth:hover,
+#battery:hover,
+#swaync:hover {
+    background: alpha(@color12, 0.24);
+}
+
+
+/* =========================================================
+   Optional: slightly transparent containers
+   ========================================================= */
+
+/*
+#clock,
+#workspaces,
+#cpu,
+#temperature,
+#network,
+#bluetooth,
+#battery,
+#swaync {
+    background: alpha(@background, 0.90);
+}
+*/

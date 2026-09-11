@@ -1,0 +1,127 @@
+@import url("/home/davening/.cache/wal/colors-swaync.css");
+
+* {
+    font-family: "0xProto Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+notification,
+.control-center {
+    background: @panel;
+    color: @fg;
+    border: 1px solid alpha(@accent, 0.45);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(10, 5, 12, 0.45);
+}
+
+notification {
+    margin: 5px 0;
+    padding: 0;
+}
+
+notification:hover {
+    background: alpha(@panel-hover, 0.95);
+}
+
+notification-content {
+    padding: 12px;
+}
+
+summary {
+    color: @accent-bright;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+body { color: @fg; }
+time { color: @muted; font-size: 11px; }
+
+close-button {
+    background: transparent;
+    color: @muted;
+    border-radius: 8px;
+    margin: 8px 8px 0 0;
+}
+
+close-button:hover {
+    background: alpha(@danger, 0.35);
+    color: @fg;
+}
+
+notification.low { border-color: alpha(@muted, 0.30); }
+notification.critical { border-color: alpha(@danger, 0.85); }
+
+.control-center {
+    padding: 14px;
+}
+
+.control-center-list { background: transparent; }
+.control-center-list-placeholder { color: @muted; }
+
+.widget-title,
+.widget-dnd,
+.widget-volume,
+.widget-mpris,
+.widget-backlight {
+    background: @panel-soft;
+    border: 1px solid alpha(@accent, 0.20);
+    border-radius: 11px;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.widget-title { color: @accent-bright; font-size: 15px; }
+
+.widget-title > button,
+.widget-dnd > button {
+    background: transparent;
+    color: @muted;
+    border-radius: 7px;
+    padding: 4px 8px;
+}
+
+.widget-title > button:hover,
+.widget-dnd > button:hover {
+    background: @panel-hover;
+    color: @fg;
+}
+
+.widget-dnd { color: @muted; }
+
+.widget-dnd > switch {
+    background: alpha(@muted, 0.30);
+    border-radius: 10px;
+}
+
+.widget-dnd > switch:checked { background: @accent; }
+
+scale trough {
+    background: alpha(@bg, 0.80);
+    border-radius: 8px;
+    min-height: 7px;
+}
+
+scale highlight {
+    background: @accent;
+    border-radius: 8px;
+}
+
+button {
+    background: @panel-soft;
+    color: @fg;
+    border: 1px solid alpha(@accent, 0.18);
+    border-radius: 9px;
+    padding: 7px 10px;
+}
+
+button:hover {
+    background: @panel-hover;
+    border-color: alpha(@accent-bright, 0.50);
+}
+
+scrollbar slider {
+    background: alpha(@accent, 0.65);
+    border-radius: 8px;
+    min-width: 5px;
+}

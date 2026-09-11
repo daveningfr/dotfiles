@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -u
+
+output_dir="$HOME/Pictures/Screenshots"
+mkdir -p "$output_dir"
+geometry=$(slurp 2>/dev/null) || exit 0
+file="$output_dir/$(date '+%Y-%m-%d_%H-%M-%S').png"
+
+grim -g "$geometry" "$file" || exit 1
+notify-send -i "$file" "Screenshot saved" "$file"

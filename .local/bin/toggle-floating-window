@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+hyprctl dispatch 'hl.dsp.window.float({ action = "toggle" })'
+sleep 0.05
+hyprctl dispatch 'hl.dsp.window.resize({ x = 800, y = 600 })'
+hyprctl dispatch 'hl.dsp.window.center()'

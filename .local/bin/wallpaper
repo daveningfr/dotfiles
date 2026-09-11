@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+wallpaper_dir="$HOME/Pictures/wallpaper"
+hyprlock_link="$HOME/.config/hypr/hyprlock/wallpaper"
+hyprpaper_config="$HOME/.config/hypr/hyprpaper.conf"
+
+if [[ $# -gt 1 ]]; then
+  printf 'Usage: wallpaper [image]\n' >&2
+  exit 2
+fi
+
+if [[ $# -eq 1 ]]; then
+  wallpaper=$1
+else
+  shopt -s nullglob
+  wallpapers=("$wallpaper_dir"/*.jpg "$wallpaper_dir"/*.jpeg "$wallpaper_dir"/*.png "$wallpaper_dir"/*.webp)
+  if [[ ${#wallpapers[@]} -eq 0 ]]; then
+    printf 'No wallpapers found in %s\n' "$wallpaper_dir" >&2
+    exit 1
+  fi
+  wallpaper=${wallpapers[RANDOM % ${#wallpapers[@]}]}
+fi
+
+if [[ ! -f "$wallpaper" ]]; then
+  printf 'Wallpaper not found: %s\n' "$wallpaper" >&2
+  exit 1
+fi
+
+wallpaper=$(realpath "$wallpaper")
+
+wal -i "$wallpaper" --cols16
+if command -v bat >/dev/null 2>&1; then
+  bat cache --build >/dev/null 2>&1
+fi
+ln -sfn "$wallpaper" "$hyprlock_link"
+
+escaped_wallpaper=${wallpaper//\\/\\\\}
+escaped_wallpaper=${escaped_wallpaper//&/\\&}
+escaped_wallpaper=${escaped_wallpaper//|/\\|}
+sed -i -E "s|^([[:space:]]*path = ).*|\1$escaped_wallpaper|" "$hyprpaper_config"
+
+if command -v pywal-spicetify >/dev/null 2>&1; then
+  pywal-spicetify Ziro >/dev/null 2>&1 || true
+fi
+
+if command -v pywalfox >/dev/null 2>&1; then
+  pywalfox update >/dev/null 2>&1 || true
+fi
+
+if command -v hyprctl >/dev/null 2>&1; then
+  hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1 || true
+  hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
+  hyprctl reload >/dev/null 2>&1 || true
+fi
+
+if command -v waybar >/dev/null 2>&1; then
+  pkill -x waybar >/dev/null 2>&1 || true
+  waybar >/dev/null 2>&1 &
+fi
+
+printf 'Wallpaper set to %s\n' "$wallpaper"

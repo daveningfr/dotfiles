@@ -1,0 +1,9 @@
+@define-color bg {background};
+@define-color panel alpha({background}, 0.88);
+@define-color panel-soft alpha({color4}, 0.20);
+@define-color panel-hover alpha({color4}, 0.34);
+@define-color fg {foreground};
+@define-color muted {color7};
+@define-color accent {color12};
+@define-color accent-bright {color13};
+@define-color danger {color1};

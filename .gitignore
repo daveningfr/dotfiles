@@ -1,0 +1,17 @@
+# Local secrets and machine state
+.env
+.env.*
+.cache/
+.local/share/
+
+# Generated or downloaded data
+**/node_modules/
+**/.git/
+**/lazy-lock.json
+**/themes/*.tmTheme
+**/themes/*.json
+
+# Private desktop state
+.config/discord/
+.config/spotify/
+.config/Vencord/
