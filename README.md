@@ -37,7 +37,7 @@ cd dotfiles
 2. Run the install script
 `./install.sh`
 Make sure it is executable first
-`chmod +x install.sh`
+```chmod +x install.sh```
 
 ---
 
@@ -59,6 +59,6 @@ the Wayland tools `grim` and `slurp`.
 
 ## Special Thanks
 
-Thanks to [SaneAspect on youtube](https://www.youtube.com/@saneAspect) for giving tutorials on how to rice Hyprland. \n
-Credits to [pywal-vencord](https://github.com/jhideki/pywal-spicetify) for creating the css file for vencord-discord \n
+Thanks to [SaneAspect on youtube](https://www.youtube.com/@saneAspect) for giving tutorials on how to rice Hyprland. \
+Credits to [pywal-vencord](https://github.com/jhideki/pywal-spicetify) for creating the css file for vencord-discord \
 Shoutout to GPT-5.6 Luna for debugging my rice
