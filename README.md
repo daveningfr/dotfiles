@@ -17,8 +17,7 @@ Waybar, SwayNC, Rofi, Neovim, and a small collection of shell utilities.
 
 ![Friren background](screenshots/empty-friren.png)
 ![Spotify with cava](screenshots/spotify-cava.png)
-![wallpaper-changer](https://www.youtube.com/watch?v=W7_Y0BtjLLk)
-
+[![wallpaper changer](https://img.youtube.com/vi/W7_Y0BtjLLk/0.jpg)](https://www.youtube.com/watch?v=W7_Y0BtjLLk)
 
 ## Installation 
 Yay is needed for the complete Installation of my dotfiles, 
