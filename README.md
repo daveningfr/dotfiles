@@ -35,9 +35,13 @@ cd dotfiles
 ```
 
 2. Run the install script
-`./install.sh`
+```
+./install.sh
+```
 Make sure it is executable first
-```chmod +x install.sh```
+```
+chmod +x install.sh
+```
 
 ---
 
