@@ -17,7 +17,7 @@ Waybar, SwayNC, Rofi, Neovim, and a small collection of shell utilities.
 
 ![Friren background](screenshots/empty-friren.png)
 ![Spotify with cava](screenshots/spotify-cava.png)
-https://github.com/user-attachments/assets/9194dc91-8f59-45a8-b6d7-82a3070ce5d4
+<video controls src=https://github.com/user-attachments/assets/9194dc91-8f59-45a8-b6d7-82a3070ce5d4 title="Presentation"></video>
 
 
 
