@@ -28,6 +28,7 @@ fcitx5-qt
 fcitx5-chinese-addons
 grim
 slurp
+wl-clipboard
 libnotify
 
 # Terminal tools
