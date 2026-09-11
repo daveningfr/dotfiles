@@ -19,10 +19,7 @@ Waybar, SwayNC, Rofi, Neovim, and a small collection of shell utilities.
 
 ![Friren background](screenshots/empty-friren.png)
 ![Spotify with cava](screenshots/spotify-cava.png)
-<video src="https://github.com/daveningfr/dotfiles/raw/refs/heads/main/screenshots/wallchanger.mp4" controls muted loop width="800"></video>
-
-[Open the wallpaper changer demo](screenshots/wallchanger.mp4) if the embedded player is not shown.
-
+![wallpaper-changer](https://rawcdn.githack.com/daveningfr/dotfiles/a5828e801876c07bf7df6b22c7268aff09a97418/screenshots/wallchanger.mp4)
 
 ---
 
