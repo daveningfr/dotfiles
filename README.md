@@ -29,7 +29,7 @@ Otherwise run the install script with --no-packages
 
 1. Clone this repo
 ```
-git clone (add repo link later)
+git clone https://github.com/daveningfr/dotfiles.git
 cd dotfiles
 ```
 
