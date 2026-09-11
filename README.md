@@ -59,6 +59,6 @@ the Wayland tools `grim` and `slurp`.
 
 ## Special Thanks
 
-Thanks to [SaneAspect on youtube](https://www.youtube.com/@saneAspect) for giving tutorials on how to rice Hyprland.
-Credits to [pywal-vencord](https://github.com/jhideki/pywal-spicetify) for creating the css file for vencord-discord
+Thanks to [SaneAspect on youtube](https://www.youtube.com/@saneAspect) for giving tutorials on how to rice Hyprland. \n
+Credits to [pywal-vencord](https://github.com/jhideki/pywal-spicetify) for creating the css file for vencord-discord \n
 Shoutout to GPT-5.6 Luna for debugging my rice
