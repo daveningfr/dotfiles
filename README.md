@@ -35,11 +35,11 @@ cd dotfiles
 ```
 
 2. Run the install script
-```
+```bash
 ./install.sh
 ```
 Make sure it is executable first
-```
+```bash
 chmod +x install.sh
 ```
 
@@ -48,7 +48,9 @@ chmod +x install.sh
 ## Wallpaper usage
 
 Change the wallpaper via using the wallpaper script created by yours truly
-`wallpaper "path/to/your/wallpaper"`
+```bash
+wallpaper "path/to/your/wallpaper"
+```
 
 
 ## Layout
