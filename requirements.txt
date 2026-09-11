@@ -1,0 +1,61 @@
+# Desktop and session
+hyprland
+hyprpaper
+hypridle
+hyprlock
+waybar
+swaync
+rofi-wayland
+kitty
+dolphin
+qt6ct
+networkmanager
+bluez
+bluez-utils
+playerctl
+
+# Theme and appearance
+pywal16
+pywalfox
+pywal-spicetify
+papirus-icon-theme
+ttf-0xproto-nerd
+
+# Input and screenshots
+fcitx5
+fcitx5-gtk
+fcitx5-qt
+fcitx5-chinese-addons
+grim
+slurp
+libnotify
+
+# Terminal tools
+bat
+eza
+btop
+fastfetch
+fzf
+zoxide
+yazi
+lazygit
+duf
+dust
+procs
+glow
+tldr
+git-delta
+cava
+cmatrix
+figlet
+toilet
+lolcat
+tty-clock
+
+# Optional AUR tools
+byobu
+hollywood
+pipes.sh
+
+# GitHub publishing
+github-cli
