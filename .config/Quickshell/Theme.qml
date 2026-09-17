@@ -20,4 +20,11 @@ QtObject {
     readonly property int barHeight: 46
     readonly property int pillHeight: 32
     readonly property int pillRadius: 10
+
+    // Audio visualiser shape. Both Cava instances (bar pill and media island)
+    // read these so the two stay identical. cavaBarCount must match the `bars`
+    // value in cava.conf, otherwise cava emits values the bar throws away.
+    readonly property int cavaBarCount: 12
+    readonly property int cavaBarSize: 15
+    readonly property int cavaBarGap: 3
 }

@@ -10,9 +10,9 @@ Item {
     id: root
 
     property color barColor: PywalColors.color4
-    property int barSize: 15
-    property int barCount: 14
-    property int barGap: 3
+    property int barSize: Theme.cavaBarSize
+    property int barCount: Theme.cavaBarCount
+    property int barGap: Theme.cavaBarGap
     property string configPath: "/home/davening/.config/Quickshell/cava.conf"
 
     // Lets an instance that is normally hidden avoid running cava at all.

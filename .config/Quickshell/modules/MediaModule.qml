@@ -172,11 +172,13 @@ Item {
                 font.pixelSize: 16
             }
 
+            // Shape comes from Theme, so this and the island's copy below are
+            // always identical. They stay two separate instances: each runs its
+            // own cava process, and the island's only runs while visible.
             Cava {
                 Layout.alignment: Qt.AlignVCenter
                 showBackground: false
                 barColor: PywalColors.color4
-                barCount: 12
             }
         }
     }
@@ -292,7 +294,6 @@ Item {
                     Layout.alignment: Qt.AlignVCenter
                     showBackground: false
                     barColor: PywalColors.color4
-                    barCount: 12
                     // Only runs while the island is on screen.
                     active: root.islandVisible
                 }
