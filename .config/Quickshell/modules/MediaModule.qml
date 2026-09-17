@@ -121,10 +121,18 @@ Item {
     Process { id: previousTrack; command: ["playerctl", "previous"] }
 
     // One animation value drives the island's size, radius and reveal.
+    //
+    // OutQuint rather than OutCubic: it decelerates for more of the way, so the
+    // shape eases into its final size instead of arriving fast and stopping.
+    // The duration is a little longer than a snappy tween for the same reason.
+    //
+    // Deliberately not a SpringAnimation: `spring` is a stiffness constant in
+    // Qt and expects small single-digit values. 420 made the integrator diverge
+    // and the surface grew past 11000px wide, which took the shell down.
     Behavior on islandExpansion {
         NumberAnimation {
-            duration: 170
-            easing.type: Easing.OutCubic
+            duration: 300
+            easing.type: Easing.OutQuart
         }
     }
 
@@ -337,7 +345,10 @@ Item {
                 anchors.bottom: parent.bottom
                 anchors.margins: 12
                 spacing: 12
-                opacity: island.expansion
+                // Staggered: the container grows first and the details fade in
+                // behind it, instead of both happening on the same clock. On
+                // the way closed the content clears before the shape shrinks.
+                opacity: Math.max(0, Math.min(1, (island.expansion - 0.30) / 0.55))
                 visible: opacity > 0.01
 
                 // Single slot so the placeholder can never peek out from under
