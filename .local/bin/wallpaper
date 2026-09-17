@@ -5,6 +5,9 @@ set -euo pipefail
 wallpaper_dir="$HOME/Pictures/wallpaper"
 hyprlock_link="$HOME/.config/hypr/hyprlock/wallpaper"
 hyprpaper_config="$HOME/.config/hypr/hyprpaper.conf"
+quickshell_dir="$HOME/.config/Quickshell"
+quickshell_config="$quickshell_dir/shell.qml"
+quickshell_colors="$quickshell_dir/quickshell-colors.qml"
 
 if [[ $# -gt 1 ]]; then
   printf 'Usage: wallpaper [image]\n' >&2
@@ -49,15 +52,22 @@ if command -v pywalfox >/dev/null 2>&1; then
   pywalfox update >/dev/null 2>&1 || true
 fi
 
+if command -v swaync-client >/dev/null 2>&1; then
+  swaync-client --reload-css >/dev/null 2>&1 || true
+fi
+
 if command -v hyprctl >/dev/null 2>&1; then
   hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1 || true
   hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
   hyprctl reload >/dev/null 2>&1 || true
 fi
 
-if command -v waybar >/dev/null 2>&1; then
-  pkill -x waybar >/dev/null 2>&1 || true
-  waybar >/dev/null 2>&1 &
+# The palette is a QML singleton, so restart Quickshell to pick up the new colors.
+if command -v quickshell >/dev/null 2>&1 && [[ -f "$quickshell_config" ]]; then
+  ln -sfn "$HOME/.cache/wal/quickshell-colors.qml" "$quickshell_colors"
+  pkill -x quickshell >/dev/null 2>&1 || true
+  sleep 0.4
+  quickshell -d -p "$quickshell_config"
 fi
 
 printf 'Wallpaper set to %s\n' "$wallpaper"

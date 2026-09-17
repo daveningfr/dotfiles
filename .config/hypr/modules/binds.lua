@@ -19,6 +19,9 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("/home/davening/.config/waybar/script
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("fcitx5-remote -t"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("/home/davening/.local/bin/screenshot"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("/home/davening/.local/bin/toggle-floating-window"))
+hl.bind(mainMod .. " + PAGE_UP", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.window.alter_z_order({ direction = \"top\" })'"))
+hl.bind(mainMod .. " + PAGE_DOWN", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.window.alter_z_order({ direction = \"bottom\" })'"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.window.pin()'"))
 hl.bind(mainMod .. "+ SUPER_L", hl.dsp.exec_cmd(Menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
@@ -28,6 +31,8 @@ hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]

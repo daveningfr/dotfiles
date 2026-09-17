@@ -38,3 +38,9 @@ hl.window_rule({
     size = "800 600",
     center = true,
 })
+
+hl.window_rule({
+    name = "kitty-glass",
+    match = { class = "^(kitty)$" },
+    opacity = "0.94 0.82",
+})

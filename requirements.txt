@@ -3,6 +3,8 @@ hyprland
 hyprpaper
 hypridle
 hyprlock
+# The bar. Quickshell is the current setup; waybar is kept for the waybar branch.
+quickshell
 waybar
 swaync
 rofi-wayland
@@ -20,6 +22,8 @@ pywalfox
 pywal-spicetify
 papirus-icon-theme
 ttf-0xproto-nerd
+# Ligature icon font: module icons are typed as words ("bluetooth", "wifi").
+ttf-material-symbols-variable
 
 # Input and screenshots
 fcitx5

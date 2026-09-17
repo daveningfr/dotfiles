@@ -142,3 +142,5 @@ export PATH="$PATH:/home/davening/.local/bin"
 
 
 export PATH=$PATH:/home/davening/.spicetify
+
+eval $(thefuck --alias)

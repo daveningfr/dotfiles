@@ -1,0 +1,3 @@
+singleton PywalColors 1.0 quickshell-colors.qml
+singleton Theme 1.0 Theme.qml
+singleton Tooltip 1.0 Tooltip.qml
