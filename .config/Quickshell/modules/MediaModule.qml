@@ -23,6 +23,8 @@ Item {
     property string title: ""
     property string album: ""
     property string art: ""
+    // MPRIS name of the player, e.g. "spotify" or "firefox.instance_1_2".
+    property string player: ""
     property real progress: 0
     property string positionText: "0:00"
     property string durationText: "0:00"
@@ -48,8 +50,34 @@ Item {
         return artist !== "" ? artist + " \u2014 " + title : title
     }
 
+    // Which app is playing, rather than what it is playing. Shown in the bar
+    // and the island's collapsed header so those two stay identical, leaving
+    // the track details to the expanded card.
+    function sourceLabel() {
+        if (player === "")
+            return "Nothing Playing"
+
+        // MPRIS names carry an instance suffix ("firefox.instance_1_2"); drop
+        // it, then capitalise. A few players are officially lowercase.
+        const base = player.split(".")[0]
+        if (["mpv", "vlc", "cmus", "audacious"].indexOf(base) !== -1)
+            return base
+        return base.charAt(0).toUpperCase() + base.slice(1)
+    }
+
     function controlIcon() {
         return status === "Playing" ? "pause" : "play_arrow"
+    }
+
+    // Artist and album on one line, so the expanded card can lead with the
+    // source app without growing a fourth row.
+    function subtitle() {
+        const parts = []
+        if (artist !== "")
+            parts.push(artist)
+        if (album !== "")
+            parts.push(album)
+        return parts.join(" \u00B7 ")
     }
 
     function openIsland() {
@@ -84,6 +112,7 @@ Item {
             root.title = meta[2] || ""
             root.album = meta[3] || ""
             root.art = meta[4] || ""
+            root.player = meta[5] || ""
         }
     }
 
@@ -274,6 +303,7 @@ Item {
                 MarqueeText {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.preferredWidth: implicitWidth
+                    // Same text as the bar pill, so the collapse stays seamless.
                     text: root.label()
                     color: PywalColors.color6
                     pixelSize: 13
@@ -350,31 +380,33 @@ Item {
                     Layout.alignment: Qt.AlignVCenter
                     spacing: 2
 
+                    // Leads with which app is playing, e.g. Spotify or Firefox.
                     MarqueeText {
                         Layout.fillWidth: true
-                        text: root.title !== "" ? root.title : "Nothing Playing"
+                        text: root.sourceLabel()
                         color: PywalColors.foreground
                         pixelSize: 13
                         bold: true
-                        // Caps the layout's preferred width so a long title
+                        // Caps the layout's preferred width so a long name
                         // cannot stretch the island past its fixed size.
                         maxWidth: 230
                     }
 
                     MarqueeText {
                         Layout.fillWidth: true
-                        text: root.album !== "" ? root.album : root.artist
+                        // Hidden while idle: the line above already reads
+                        // "Nothing Playing", so showing it twice is noise.
+                        visible: root.title !== ""
+                        text: root.title
                         color: PywalColors.color6
-                        pixelSize: 11
+                        pixelSize: 12
                         maxWidth: 230
                     }
 
-                    // Hidden when there is no album, since the line above
-                    // already falls back to the artist in that case.
                     MarqueeText {
                         Layout.fillWidth: true
-                        visible: root.album !== "" && root.artist !== ""
-                        text: root.artist
+                        visible: root.subtitle() !== ""
+                        text: root.subtitle()
                         color: PywalColors.color8
                         pixelSize: 10
                         maxWidth: 230
