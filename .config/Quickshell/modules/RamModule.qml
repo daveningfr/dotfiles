@@ -2,7 +2,7 @@ import QtQuick
 import ".."
 import "../lib"
 
-// Processor usage, sampled by scripts/cpu.sh.
+// Memory usage, sampled by scripts/ram.sh.
 Item {
     id: root
 
@@ -15,7 +15,7 @@ Item {
     property int usage: 0
 
     Poller {
-        command: "/home/davening/.config/Quickshell/scripts/cpu.sh"
+        command: "/home/davening/.config/Quickshell/scripts/ram.sh"
         interval: 2000
         onValueChanged: root.usage = parseInt(value, 10) || 0
     }
@@ -24,9 +24,9 @@ Item {
         id: pill
         anchors.fill: parent
         showBackground: root.showBackground
-        icon: "speed"
+        icon: "memory"
         label: root.usage + "%"
-        iconColor: PywalColors.color2
-        tooltip: "CPU usage: " + root.usage + "%"
+        iconColor: PywalColors.color6
+        tooltip: "Memory usage: " + root.usage + "%"
     }
 }

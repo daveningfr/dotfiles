@@ -53,12 +53,22 @@ PanelWindow {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 6
 
-            VolumeModule {}
-            CpuModule {}
-            TemperatureModule {}
-            NetworkModule {}
-            BluetoothModule {}
-            BatteryModule {}
+            // Hardware: temperature, processor, memory, battery.
+            ModuleGroup {
+                TemperatureModule { showBackground: false }
+                CpuModule { showBackground: false }
+                RamModule { showBackground: false }
+                BatteryModule { showBackground: false }
+            }
+
+            // Connectivity: network, bluetooth, audio.
+            ModuleGroup {
+                NetworkModule { showBackground: false }
+                BluetoothModule { showBackground: false }
+                VolumeModule { showBackground: false }
+            }
+
+            // On its own, so it stays a distinct target to click.
             NotificationsModule {}
         }
     }

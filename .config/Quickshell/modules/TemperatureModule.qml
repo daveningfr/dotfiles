@@ -6,6 +6,9 @@ import "../lib"
 Item {
     id: root
 
+    // Set false when this sits inside a shared group pill.
+    property bool showBackground: true
+
     implicitWidth: pill.implicitWidth
     implicitHeight: Theme.pillHeight
 
@@ -21,6 +24,7 @@ Item {
     Pill {
         id: pill
         anchors.fill: parent
+        showBackground: root.showBackground
         icon: "device_thermostat"
         label: root.celsius + "\u00B0C"
         iconColor: root.critical ? PywalColors.color1 : PywalColors.color3

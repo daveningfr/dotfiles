@@ -7,6 +7,9 @@ import "../lib"
 Item {
     id: root
 
+    // Set false when this sits inside a shared group pill.
+    property bool showBackground: true
+
     implicitWidth: pill.implicitWidth
     implicitHeight: Theme.pillHeight
 
@@ -38,6 +41,7 @@ Item {
     Pill {
         id: pill
         anchors.fill: parent
+        showBackground: root.showBackground
         icon: root.icon()
         iconFont: root.iconFont()
         label: root.name
