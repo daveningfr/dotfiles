@@ -15,3 +15,20 @@
 .config/discord/
 .config/spotify/
 .config/Vencord/
+
+# App configs that must never be published: OpenCode stores a live API key, and
+# the proxy configs hold server credentials.
+.config/opencode/
+.config/mihomo/
+.config/io.github.clash-verge-rev.clash-verge-rev/
+
+# Bulky or machine-specific app state
+.config/mozilla/
+.config/chromium/
+.config/spicetify/
+.config/VSCodium/
+.config/obs-studio/
+.config/dconf/
+.config/pulse/
+.config/remmina/
+.config/freerdp/

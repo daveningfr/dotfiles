@@ -1,0 +1,13 @@
+[Added Associations]
+image/png=ristretto.desktop;
+
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
+[Default Applications]
+image=ristretto.desktop
+image/gif=ristretto.desktop
+image/jpeg=ristretto.desktop
+image/png=ristretto.desktop;
+image/webp=ristretto.desktop
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
