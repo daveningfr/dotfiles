@@ -8,6 +8,10 @@ hyprpaper_config="$HOME/.config/hypr/hyprpaper.conf"
 quickshell_dir="$HOME/.config/Quickshell"
 quickshell_config="$quickshell_dir/shell.qml"
 quickshell_colors="$quickshell_dir/quickshell-colors.qml"
+spicetify_theme="Ziro"
+spicetify_scheme="pywal"
+spicetify_color_ini="$HOME/.config/spicetify/Themes/$spicetify_theme/color.ini"
+wal_spicetify_colors="$HOME/.cache/wal/colors-spicetify.ini"
 
 if [[ $# -gt 1 ]]; then
   printf 'Usage: wallpaper [image]\n' >&2
@@ -44,8 +48,28 @@ escaped_wallpaper=${escaped_wallpaper//&/\\&}
 escaped_wallpaper=${escaped_wallpaper//|/\\|}
 sed -i -E "s|^([[:space:]]*path = ).*|\1$escaped_wallpaper|" "$hyprpaper_config"
 
-if command -v pywal-spicetify >/dev/null 2>&1; then
-  pywal-spicetify Ziro >/dev/null 2>&1 || true
+# Spicetify: the scheme the client renders lives in the active theme's
+# color.ini, so write the freshly generated values there and apply them.
+#
+# `--no-restart` matters here: plain `apply` restarts Spotify on every
+# wallpaper change. Note `spicetify update` is not an alternative to this -
+# despite the name it upgrades the Spicetify CLI itself.
+if command -v spicetify >/dev/null 2>&1 &&
+   [[ -f "$spicetify_color_ini" && -f "$wal_spicetify_colors" ]]; then
+  # Replace only the [pywal] scheme, so the theme's other schemes are kept.
+  sc_tmp=$(mktemp)
+  awk -v scheme="[$spicetify_scheme]" '
+    /^\[/ { skip = ($0 == scheme) }
+    !skip { print }
+  ' "$spicetify_color_ini" > "$sc_tmp"
+  {
+    printf '%s\n' "[$spicetify_scheme]"
+    cat "$wal_spicetify_colors"
+  } >> "$sc_tmp"
+  mv "$sc_tmp" "$spicetify_color_ini"
+
+  spicetify config current_theme "$spicetify_theme" color_scheme "$spicetify_scheme" >/dev/null 2>&1 || true
+  spicetify apply --no-restart >/dev/null 2>&1 || true
 fi
 
 if command -v pywalfox >/dev/null 2>&1; then
